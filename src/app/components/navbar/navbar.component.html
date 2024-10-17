@@ -1,65 +1,45 @@
 <!-- Navbar -->
-<nav class="navbar justify-between bg-base-300">
-    <!-- Logo -->
-    <a class="btn btn-ghost text-lg">
-        <img alt="Logo" src="/logo.svg" class="w-4" />
-        App Name 
-    </a>
-
-    <!-- Menu for mobile -->
-    <div class="dropdown dropdown-end sm:hidden">
-        <button class="btn btn-ghost">
-            <i class="fa-solid fa-bars text-lg"></i>
-        </button>
-
-        <ul tabindex="0" class="dropdown-content menu z-[1] bg-base-200 p-4 rounded-box shadow w-64 gap-2">
-            <li><a>About</a></li>
-            <li><a>Team</a></li>
-            <li>
-                <h2 class="menu-title">Features</h2>
-                <ul>
-                    <li><a>Tech tools</a></li>
-                    <li><a>Podcast</a></li>
-                    <li><a>Community</a></li>
-                </ul>
-            </li>
-            <a class="btn btn-primary btn-sm">
-                <i class="fa-solid fa-rocket"></i>
-                Access
-            </a>
-        </ul>
+<nav class="bg-gray-800 text-white p-4 flex justify-between items-center">
+    <div class="flex items-center">
+      <button (click)="toggleMenu()" class="mr-4 focus:outline-none">
+        <!-- Hamburger icon -->
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <a href="#" class="text-xl font-semibold">My App</a>
     </div>
-
-    <!-- Menu for desktop -->
-    <div class="hidden sm:flex gap-2">
-        <a class="btn btn-ghost btn-sm">
-            <i class="fa-solid fa-circle-info text-secondary"></i>
-            About
-        </a>
-
-        <a class="btn btn-ghost btn-sm">
-            <i class="fa-solid fa-users text-secondary"></i>
-            Team
-        </a>
-
-        <!-- Dropdown menu -->
-        <div class="dropdown dropdown-end">
-            <button class="btn btn-ghost btn-sm">
-                <i class="fa-solid fa-fire text-secondary"></i>
-                Features
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
-
-            <ul tabindex="0" class="dropdown-content menu z-[1] bg-base-200 p-6 rounded-box shadow w-56 gap-2">
-                <li><a>Tech tools</a></li>
-                <li><a>Podcast</a></li>
-                <li><a>Community</a></li>
-            </ul>
-        </div>
-
-        <a class="btn btn-primary btn-sm">
-            <i class="fa-solid fa-rocket"></i>
-            Login
-        </a>
+  
+    <ul class="hidden md:flex space-x-6">
+      <li><a href="#" class="hover:text-gray-400">Home</a></li>
+      <li><a href="#" class="hover:text-gray-400">Services</a></li>
+      <li><a href="#" class="hover:text-gray-400">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Side Menu -->
+  <div [ngClass]="{'translate-x-0': isMenuOpen, '-translate-x-full': !isMenuOpen}"
+       class="fixed top-0 left-0 w-64 h-full bg-gray-800 text-white transform transition-transform duration-300 ease-in-out z-50">
+    <div class="p-4">
+      <button (click)="toggleMenu()" class="focus:outline-none">
+        <!-- Close icon -->
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
     </div>
-</nav>
+    <ul class="mt-4">
+      <li><a href="#" class="block p-4 hover:bg-gray-700">Home</a></li>
+      <li><a href="#" class="block p-4 hover:bg-gray-700">Services</a></li>
+      <li><a href="#" class="block p-4 hover:bg-gray-700">About</a></li>
+      <li><a href="#" class="block p-4 hover:bg-gray-700">Contact</a></li>
+    </ul>
+  </div>
+  
+  <!-- Main content (To push the content down for the fixed navbar) -->
+  <div class="pt-16">
+    <div class="container mx-auto">
+      <!-- Your content goes here -->
+    </div>
+  </div>
+  

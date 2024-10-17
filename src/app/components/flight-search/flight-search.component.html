@@ -1,10 +1,47 @@
 <div class="container mx-auto">
-    <div class="container mx-3 my-5">
-        <div class="container mx-auto flex flex-row flex-wrap justify-center">
-            <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-            <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-            <button class="btn">Button</button>
-            
-        </div>
+  <div class="container mx-3 my-5">
+    <div class="container mx-auto flex flex-row flex-wrap justify-center">
+      
+      <!-- Input 1 with autosuggestions and keyboard controls -->
+      <div class="relative w-full max-w-xs">
+        <input type="text" 
+               [formControl]="inputControl1" 
+               placeholder="Type here" 
+               (keydown)="onKeydown($event, 1)" 
+               (blur)="onBlur(1)"
+               class="input input-bordered w-full" />
+        <ul *ngIf="filteredSuggestions1.length && showSuggestions1" 
+            class="absolute bg-white border border-gray-300 w-full">
+          <li *ngFor="let suggestion of filteredSuggestions1; let i = index" 
+              (click)="selectSuggestion(suggestion, 1)" 
+              [class.bg-gray-300]="i === activeSuggestion1" 
+              class="cursor-pointer px-4 py-2 hover:bg-gray-200">
+            {{ suggestion }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Input 2 with autosuggestions and keyboard controls -->
+      <div class="relative w-full max-w-xs">
+        <input type="text" 
+               [formControl]="inputControl2" 
+               placeholder="Type here" 
+               (keydown)="onKeydown($event, 2)" 
+               (blur)="onBlur(2)"
+               class="input input-bordered w-full" />
+        <ul *ngIf="filteredSuggestions2.length && showSuggestions2" 
+            class="absolute bg-white border border-gray-300 w-full">
+          <li *ngFor="let suggestion of filteredSuggestions2; let i = index" 
+              (click)="selectSuggestion(suggestion, 2)" 
+              [class.bg-gray-300]="i === activeSuggestion2" 
+              class="cursor-pointer px-4 py-2 hover:bg-gray-200">
+            {{ suggestion }}
+          </li>
+        </ul>
+      </div>
+
+      <button class="btn">Button</button>
+      
     </div>
+  </div>
 </div>
