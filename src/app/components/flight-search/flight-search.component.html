@@ -9,7 +9,7 @@
                placeholder="Type here" 
                (keydown)="onKeydown($event, 1)" 
                (blur)="onBlur(1)"
-               class="input input-bordered w-full" />
+               class="input input-bordered w-full border-cyan-300" />
         <ul *ngIf="filteredSuggestions1.length && showSuggestions1" 
             class="absolute bg-white border border-gray-300 w-full">
           <li *ngFor="let suggestion of filteredSuggestions1; let i = index" 
@@ -22,13 +22,13 @@
       </div>
 
       <!-- Input 2 with autosuggestions and keyboard controls -->
-      <div class="relative w-full max-w-xs">
+      <div class="relative w-full max-w-xs ml-3">
         <input type="text" 
                [formControl]="inputControl2" 
                placeholder="Type here" 
                (keydown)="onKeydown($event, 2)" 
                (blur)="onBlur(2)"
-               class="input input-bordered w-full" />
+               class="input input-bordered w-full border-cyan-300" />
         <ul *ngIf="filteredSuggestions2.length && showSuggestions2" 
             class="absolute bg-white border border-gray-300 w-full">
           <li *ngFor="let suggestion of filteredSuggestions2; let i = index" 
@@ -40,7 +40,7 @@
         </ul>
       </div>
 
-      <button class="btn">Button</button>
+      <button class="btn ml-3 border-2 border-cyan-300 hover:bg-transparent" (click)="searchFlights()">Search</button>
       
     </div>
   </div>

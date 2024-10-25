@@ -15,3 +15,12 @@
     transition: transform 0.3s ease-in-out;
   }
   
+
+/* Dropdown Styling */
+ul.absolute {
+  display: none;
+}
+
+li.relative:hover ul.absolute {
+  display: block;
+}

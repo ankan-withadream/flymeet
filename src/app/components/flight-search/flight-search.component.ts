@@ -92,4 +92,12 @@ if (inputValue != null)
       }
     }, 200);
   }
+
+  searchFlights() {
+    if (this.inputControl1.value && this.inputControl2.value) {
+      // Perform flight search logic here
+      console.log('Searching flights from', this.inputControl1.value, 'to', this.inputControl2.value);
+    }
+  }
+
 }
