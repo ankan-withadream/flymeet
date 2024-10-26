@@ -17,8 +17,8 @@
   
   <!-- Authentication Links -->
   <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
-    <li><a href="#" onclick="my_modal_2.showModal()" class="hover:text-gray-400">Login</a></li>
-    <li><a href="#" (click)="register()" class="hover:text-gray-400">Register</a></li>
+    <li><a onclick="my_modal_2.showModal()" class="hover:text-gray-400">Login</a></li>
+    <li><a href="/register" class="hover:text-gray-400">Register</a></li>
   </ng-container>
   
   <!-- User Profile Dropdown if logged in -->
@@ -30,7 +30,7 @@
       <ul class="absolute right-0 mt-2 w-48 bg-gray-800 text-white border border-gray-700 rounded-lg shadow-lg">
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Account</a></li>
         <li><a href="#" class="block px-4 py-2 hover:bg-gray-700">Settings</a></li>
-        <li><a href="#" (click)="logout()" class="block px-4 py-2 hover:bg-gray-700">Logout</a></li>
+        <li><a href="#" onclick="authService.logout()" class="block px-4 py-2 hover:bg-gray-700">Logout</a></li>
       </ul>
     </li>
   </ng-template>
@@ -53,10 +53,10 @@
       <li><a href="#" class="block p-4 hover:bg-gray-700">Services</a></li>
     <!-- Authentication Links for Mobile -->
     <ng-container *ngIf="!isLoggedIn; else mobileLoggedInTemplate">
-      <li><a href="#" onclick="my_modal_2.showModal()" class="block p-4 hover:bg-gray-700">Login</a></li>
+      <li><a onclick="my_modal_2.showModal()" class="block p-4 hover:bg-gray-700">Login</a></li>
       <!-- <button class="btn" onclick="my_modal_2.showModal()">open modal</button> -->
 
-      <li><a href="#" (click)="register()" class="block p-4 hover:bg-gray-700">Register</a></li>
+      <li><a href="/register" class="block p-4 hover:bg-gray-700">Register</a></li>
     </ng-container>
     
     <!-- User Dropdown in Side Menu if logged in -->
@@ -69,11 +69,11 @@
   </div>
   
   <!-- Main content (To push the content down for the fixed navbar) -->
-  <div class="pt-16">
-    <div class="container mx-auto">
+  <!-- <div class="pt-16"> -->
+    <!-- <div class="container mx-auto"> -->
       <!-- Your content goes here -->
-    </div>
-  </div>
+    <!-- </div> -->
+  <!-- </div> -->
   
   <dialog id="my_modal_2" class="modal">
     <div class="modal-box">
