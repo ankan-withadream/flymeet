@@ -9,18 +9,18 @@
       </button>
       <a href="#" class="text-xl font-semibold">Fly-meet</a>
     </div>
-  
+
  <!-- Navbar Links -->
  <ul class="hidden md:flex space-x-6 items-center">
   <li><a href="#" class="hover:text-gray-400">Home</a></li>
   <li><a href="#" class="hover:text-gray-400">Services</a></li>
-  
+
   <!-- Authentication Links -->
-  <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
+  <ng-container *ngIf="authService.loggedInUser == null; else loggedInTemplate">
     <li><a onclick="my_modal_2.showModal()" class="hover:text-gray-400">Login</a></li>
     <li><a href="/register" class="hover:text-gray-400">Register</a></li>
   </ng-container>
-  
+
   <!-- User Profile Dropdown if logged in -->
   <ng-template #loggedInTemplate>
     <li class="relative">
@@ -36,7 +36,7 @@
   </ng-template>
 </ul>
 </nav>
-  
+
   <!-- Side Menu -->
   <div [ngClass]="{'translate-x-0': isMenuOpen, '-translate-x-full': !isMenuOpen}"
        class="fixed top-0 left-0 w-64 h-full bg-gray-800 text-white transform transition-transform duration-300 ease-in-out z-50">
@@ -52,29 +52,29 @@
       <li><a href="#" class="block p-4 hover:bg-gray-700">Home</a></li>
       <li><a href="#" class="block p-4 hover:bg-gray-700">Services</a></li>
     <!-- Authentication Links for Mobile -->
-    <ng-container *ngIf="!isLoggedIn; else mobileLoggedInTemplate">
+    <ng-container *ngIf="authService.loggedInUser == null; else mobileLoggedInTemplate">
       <li><a onclick="my_modal_2.showModal()" class="block p-4 hover:bg-gray-700">Login</a></li>
       <!-- <button class="btn" onclick="my_modal_2.showModal()">open modal</button> -->
 
       <li><a href="/register" class="block p-4 hover:bg-gray-700">Register</a></li>
     </ng-container>
-    
+
     <!-- User Dropdown in Side Menu if logged in -->
     <ng-template #mobileLoggedInTemplate>
       <li><a href="#" class="block p-4 hover:bg-gray-700">Account</a></li>
       <li><a href="#" class="block p-4 hover:bg-gray-700">Settings</a></li>
-      <li><a href="#" (click)="logout()" class="block p-4 hover:bg-gray-700">Logout</a></li>
+      <li><a href="#" (click)="authService.logout()" class="block p-4 hover:bg-gray-700">Logout</a></li>
     </ng-template>
     </ul>
   </div>
-  
+
   <!-- Main content (To push the content down for the fixed navbar) -->
   <!-- <div class="pt-16"> -->
     <!-- <div class="container mx-auto"> -->
       <!-- Your content goes here -->
     <!-- </div> -->
   <!-- </div> -->
-  
+
   <dialog id="my_modal_2" class="modal">
     <div class="modal-box">
       <label class="input input-bordered flex items-center gap-2 my-2">
